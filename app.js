@@ -2,9 +2,10 @@ const express = require('express')
 
 const app = express()
 app.set('view engine', 'pug')
+const sitename = "PersonalCraft"
 
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Hey', message: 'Hello there!' })
+    res.render('index', { sitename: sitename, title: 'Home', message: 'Hello there!' })
 })
 
 const server = app.listen(3000, () => {
