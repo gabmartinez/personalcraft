@@ -2,5 +2,9 @@ doctype html
 html
   include includes/header.pug
   body
-    h1= message
+    .container-fluid.bg-light
+      nav.navbar.navbar-expand-lg.navbar-light
+        a.navbar-brand(href="#") Navbar
+    .container-fluid
+      h1= message
     include includes/footer.pug
