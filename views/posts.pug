@@ -1,0 +1,11 @@
+extend layout
+
+block content
+    a.sr-only.sr-only-focusable(href="#content") Skip to main content
+    each post in posts
+        .post.mb-4
+            h2.font-weight-bold.m-0= post.title
+            small.text-secondary= "Last updated: " + post.updated
+            p.mt-3.text-justify= post.content
+            div.d-flex.align-items-end
+                a.btn.btn-dark(href= post.url, role="button", aria-pressed="true", target="_blank") Read More
