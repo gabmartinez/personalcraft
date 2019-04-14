@@ -1,7 +1,12 @@
 const express = require('express')
+const axios = require('axios')
+const mailer = require('./mailer')
+const data = require('./data')
 
 const app = express()
 app.set('view engine', 'pug')
+app.use(express.urlencoded({ extended: true }))
+
 const sitename = "PersonalCraft"
 
 app.get('/', (req, res) => {
