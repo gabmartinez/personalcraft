@@ -1,0 +1,22 @@
+extend layout
+
+block content
+  h1.font-weight-bold.m-0= title
+  p.mt-3 You can contact me through my phone number 809-750-9900 or by this contact form
+  form.border-top.py-3(method='POST', action="/contact")
+    .form-row
+      .form-group.col-md-6
+        label(for='name-input') Full Name
+        input#name-input.form-control(type='text', name='full_name', placeholder='Full Name', required)
+      .form-group.col-md-6
+        label(for='email-input') Email
+        input#email-input.form-control(type='email', name='email', placeholder='Email', required)
+    .form-group
+      label(for='text-comment') Comment
+      textarea#text-comment.form-control(name='comment', rows='3', required)
+    button.btn.btn-dark(type="submit") Send
+  div.toast(role="alert", aria-live="assertive", aria-atomic="true", style='position: absolute; top: 10px; right: 20px;')
+    .toast-header.text-white.bg-secondary
+      strong.mr-auto= "Notification"
+      button.ml-2.mb-1.close(type="button", data-dismiss="toast" aria-label="Close")
+    div.toast-body The message has been sent
