@@ -1,10 +1,36 @@
 doctype html
 html
-  include includes/header.pug
+  include includes/header
   body
-    .container-fluid.bg-light
-      nav.navbar.navbar-expand-lg.navbar-light
-        a.navbar-brand(href="#") Navbar
-    .container-fluid
-      h1= message
-    include includes/footer.pug
+    .container-fluid.navbar-bg.sticky-top
+      nav.navbar.navbar-expand-lg.navbar-light.text-white
+        a.text-white.navbar-brand(href="/")
+          i.fas.fa-code
+          |  #{sitename}
+        #navbarNav.collapse.navbar-collapse
+          ul.navbar-nav.justify-content-end.w-100
+            li.nav-item
+              a.nav-link.text-white(href="/") Home
+            li.nav-item
+              a.nav-link.text-white(href="/posts") Posts
+            li.nav-item
+              a.nav-link.text-white(href="/contact") Contact
+    .container-fluid.h-100
+      .row.h-100
+        .col-3.bg-light.pt-4.position-sticky
+          .text-center
+            img.rounded-circle.w-50.img-thumbnail(src=account.avatar_url)
+            h5.pt-2.mb-0.font-weight-bold= account.name
+            p.h6.text-secondary.m-0
+              small.fas.fa-map-marker-alt
+              small= " " + account.location
+            a.h6.text-dark(href=account.html_url)
+              small.fab.fa-github
+              small= " @" + account.login
+          .text-center.mt-4.p-3.border-bottom
+            p.text-secondary #{account.bio}
+        .col-9.border-left.p-5
+          block content
+    include includes/footer
+    if showAlert
+      script $('.toast').toast({'delay': 3000}).toast('show');
